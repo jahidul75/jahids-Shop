@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		983FCE0E138FE5F3A7A693CC /* Pods_jahids_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E149582884F3BE2DA451E37 /* Pods_jahids_Shop.framework */; };
+		FE217B2B2B90C78600907F57 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE217B2A2B90C78600907F57 /* SignupController.swift */; };
+		FE2D95202B98354D00DC0418 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D951F2B98354D00DC0418 /* CategoryController.swift */; };
+		FE2D95222B98358800DC0418 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95212B98358800DC0418 /* SearchController.swift */; };
+		FE2D95242B9835B200DC0418 /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95232B9835B200DC0418 /* OrderController.swift */; };
+		FE2D95262B98361400DC0418 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95252B98361400DC0418 /* SettingsController.swift */; };
+		FE2D95282B98A5A900DC0418 /* ProductsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95272B98A5A900DC0418 /* ProductsController.swift */; };
+		FE2D952A2B9A2D1600DC0418 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95292B9A2D1600DC0418 /* ProfileController.swift */; };
+		FE2D952D2B9F8E2600DC0418 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D952C2B9F8E2600DC0418 /* Product.swift */; };
+		FE2D95382BA210E800DC0418 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D95362BA210E800DC0418 /* SearchCell.swift */; };
+		FE2D95392BA210E800DC0418 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2D95372BA210E800DC0418 /* SearchCell.xib */; };
+		FE2D953C2BA2407300DC0418 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2D953A2BA2407300DC0418 /* ProductCell.swift */; };
+		FE2D953D2BA2407300DC0418 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE2D953B2BA2407300DC0418 /* ProductCell.xib */; };
+		FE44C7452B81531800D98BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44C7442B81531800D98BED /* AppDelegate.swift */; };
+		FE44C7472B81531900D98BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44C7462B81531900D98BED /* SceneDelegate.swift */; };
+		FE44C7492B81531900D98BED /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44C7482B81531900D98BED /* SplashController.swift */; };
+		FE44C74C2B81531900D98BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE44C74A2B81531900D98BED /* Main.storyboard */; };
+		FE44C74E2B81531A00D98BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE44C74D2B81531A00D98BED /* Assets.xcassets */; };
+		FE44C7512B81531A00D98BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE44C74F2B81531A00D98BED /* LaunchScreen.storyboard */; };
+		FE44C7592B83ED5C00D98BED /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44C7582B83ED5C00D98BED /* Constans.swift */; };
+		FE44C75B2B83F18800D98BED /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44C75A2B83F18800D98BED /* LoginController.swift */; };
+		FE45EF342BBCA6CC00B8628F /* CategoryHolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF322BBCA6CC00B8628F /* CategoryHolderCell.swift */; };
+		FE45EF352BBCA6CC00B8628F /* CategoryHolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE45EF332BBCA6CC00B8628F /* CategoryHolderCell.xib */; };
+		FE45EF382BBCAACC00B8628F /* CollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF362BBCAACC00B8628F /* CollectionSectionHeaderView.swift */; };
+		FE45EF392BBCAACC00B8628F /* CollectionSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE45EF372BBCAACC00B8628F /* CollectionSectionHeaderView.xib */; };
+		FE47154F2B87969900F79CD6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE47154E2B87969900F79CD6 /* UIViewExtension.swift */; };
+		FE59D47A2BA7771000467602 /* DisplayProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59D4792BA7771000467602 /* DisplayProduct.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		020B0D8CFBCED3D6DD39A538 /* Pods-jahids Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jahids Shop.release.xcconfig"; path = "Target Support Files/Pods-jahids Shop/Pods-jahids Shop.release.xcconfig"; sourceTree = "<group>"; };
+		4E149582884F3BE2DA451E37 /* Pods_jahids_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jahids_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0706057D1CF3259D7CC79AC /* Pods-jahids Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jahids Shop.debug.xcconfig"; path = "Target Support Files/Pods-jahids Shop/Pods-jahids Shop.debug.xcconfig"; sourceTree = "<group>"; };
+		FE217B2A2B90C78600907F57 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		FE2D951F2B98354D00DC0418 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		FE2D95212B98358800DC0418 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		FE2D95232B9835B200DC0418 /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
+		FE2D95252B98361400DC0418 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		FE2D95272B98A5A900DC0418 /* ProductsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsController.swift; sourceTree = "<group>"; };
+		FE2D95292B9A2D1600DC0418 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		FE2D952C2B9F8E2600DC0418 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FE2D95362BA210E800DC0418 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		FE2D95372BA210E800DC0418 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		FE2D953A2BA2407300DC0418 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		FE2D953B2BA2407300DC0418 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		FE44C7412B81531800D98BED /* jahids Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jahids Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE44C7442B81531800D98BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE44C7462B81531900D98BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FE44C7482B81531900D98BED /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		FE44C74B2B81531900D98BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE44C74D2B81531A00D98BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE44C7502B81531A00D98BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE44C7522B81531A00D98BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE44C7582B83ED5C00D98BED /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		FE44C75A2B83F18800D98BED /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		FE45EF322BBCA6CC00B8628F /* CategoryHolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHolderCell.swift; sourceTree = "<group>"; };
+		FE45EF332BBCA6CC00B8628F /* CategoryHolderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryHolderCell.xib; sourceTree = "<group>"; };
+		FE45EF362BBCAACC00B8628F /* CollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionHeaderView.swift; sourceTree = "<group>"; };
+		FE45EF372BBCAACC00B8628F /* CollectionSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionSectionHeaderView.xib; sourceTree = "<group>"; };
+		FE47154E2B87969900F79CD6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		FE59D4792BA7771000467602 /* DisplayProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProduct.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE44C73E2B81531800D98BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				983FCE0E138FE5F3A7A693CC /* Pods_jahids_Shop.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C03AC4A237C49D3BAC5E0426 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E149582884F3BE2DA451E37 /* Pods_jahids_Shop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE791B633D2B98EFDD9E5F85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0706057D1CF3259D7CC79AC /* Pods-jahids Shop.debug.xcconfig */,
+				020B0D8CFBCED3D6DD39A538 /* Pods-jahids Shop.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE2D952B2B9F8E0900DC0418 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D952C2B9F8E2600DC0418 /* Product.swift */,
+				FE59D4792BA7771000467602 /* DisplayProduct.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FE44C7382B81531800D98BED = {
+			isa = PBXGroup;
+			children = (
+				FE44C7432B81531800D98BED /* jahids Shop */,
+				FE44C7422B81531800D98BED /* Products */,
+				EE791B633D2B98EFDD9E5F85 /* Pods */,
+				C03AC4A237C49D3BAC5E0426 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FE44C7422B81531800D98BED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE44C7412B81531800D98BED /* jahids Shop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE44C7432B81531800D98BED /* jahids Shop */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D952B2B9F8E0900DC0418 /* Models */,
+				FE47154D2B87967500F79CD6 /* Extension */,
+				FE47154C2B86182100F79CD6 /* ViewModels */,
+				FE47154B2B86181400F79CD6 /* Services */,
+				FE47154A2B86180000F79CD6 /* CustomViews */,
+				FE4715492B8617E900F79CD6 /* Utils */,
+				FE4715482B8617B700F79CD6 /* StoryBoards */,
+				FE4715472B86178C00F79CD6 /* ViewController */,
+				FE4715462B86175300F79CD6 /* AppDelegate */,
+				FE44C74D2B81531A00D98BED /* Assets.xcassets */,
+				FE44C7522B81531A00D98BED /* Info.plist */,
+			);
+			path = "jahids Shop";
+			sourceTree = "<group>";
+		};
+		FE4715462B86175300F79CD6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FE44C7442B81531800D98BED /* AppDelegate.swift */,
+				FE44C7462B81531900D98BED /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FE4715472B86178C00F79CD6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FE44C7482B81531900D98BED /* SplashController.swift */,
+				FE44C75A2B83F18800D98BED /* LoginController.swift */,
+				FE217B2A2B90C78600907F57 /* SignupController.swift */,
+				FE2D951F2B98354D00DC0418 /* CategoryController.swift */,
+				FE2D95212B98358800DC0418 /* SearchController.swift */,
+				FE2D95232B9835B200DC0418 /* OrderController.swift */,
+				FE2D95252B98361400DC0418 /* SettingsController.swift */,
+				FE2D95272B98A5A900DC0418 /* ProductsController.swift */,
+				FE2D95292B9A2D1600DC0418 /* ProfileController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FE4715482B8617B700F79CD6 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				FE44C74F2B81531A00D98BED /* LaunchScreen.storyboard */,
+				FE44C74A2B81531900D98BED /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		FE4715492B8617E900F79CD6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FE44C7582B83ED5C00D98BED /* Constans.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FE47154A2B86180000F79CD6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FE2D95362BA210E800DC0418 /* SearchCell.swift */,
+				FE2D95372BA210E800DC0418 /* SearchCell.xib */,
+				FE2D953A2BA2407300DC0418 /* ProductCell.swift */,
+				FE2D953B2BA2407300DC0418 /* ProductCell.xib */,
+				FE45EF322BBCA6CC00B8628F /* CategoryHolderCell.swift */,
+				FE45EF332BBCA6CC00B8628F /* CategoryHolderCell.xib */,
+				FE45EF362BBCAACC00B8628F /* CollectionSectionHeaderView.swift */,
+				FE45EF372BBCAACC00B8628F /* CollectionSectionHeaderView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FE47154B2B86181400F79CD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FE47154C2B86182100F79CD6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FE47154D2B87967500F79CD6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FE47154E2B87969900F79CD6 /* UIViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE44C7402B81531800D98BED /* jahids Shop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE44C7552B81531A00D98BED /* Build configuration list for PBXNativeTarget "jahids Shop" */;
+			buildPhases = (
+				E632F5E2C4A046C315D72A6C /* [CP] Check Pods Manifest.lock */,
+				FE44C73D2B81531800D98BED /* Sources */,
+				FE44C73E2B81531800D98BED /* Frameworks */,
+				FE44C73F2B81531800D98BED /* Resources */,
+				7E9654B8389878E5EF4BEEE8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "jahids Shop";
+			productName = "jahids Shop";
+			productReference = FE44C7412B81531800D98BED /* jahids Shop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE44C7392B81531800D98BED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FE44C7402B81531800D98BED = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = FE44C73C2B81531800D98BED /* Build configuration list for PBXProject "jahids Shop" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE44C7382B81531800D98BED;
+			productRefGroup = FE44C7422B81531800D98BED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE44C7402B81531800D98BED /* jahids Shop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE44C73F2B81531800D98BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE44C7512B81531A00D98BED /* LaunchScreen.storyboard in Resources */,
+				FE2D95392BA210E800DC0418 /* SearchCell.xib in Resources */,
+				FE2D953D2BA2407300DC0418 /* ProductCell.xib in Resources */,
+				FE45EF392BBCAACC00B8628F /* CollectionSectionHeaderView.xib in Resources */,
+				FE45EF352BBCA6CC00B8628F /* CategoryHolderCell.xib in Resources */,
+				FE44C74E2B81531A00D98BED /* Assets.xcassets in Resources */,
+				FE44C74C2B81531900D98BED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E9654B8389878E5EF4BEEE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jahids Shop/Pods-jahids Shop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jahids Shop/Pods-jahids Shop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jahids Shop/Pods-jahids Shop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E632F5E2C4A046C315D72A6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-jahids Shop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE44C73D2B81531800D98BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE47154F2B87969900F79CD6 /* UIViewExtension.swift in Sources */,
+				FE2D95382BA210E800DC0418 /* SearchCell.swift in Sources */,
+				FE217B2B2B90C78600907F57 /* SignupController.swift in Sources */,
+				FE45EF382BBCAACC00B8628F /* CollectionSectionHeaderView.swift in Sources */,
+				FE44C7492B81531900D98BED /* SplashController.swift in Sources */,
+				FE44C7452B81531800D98BED /* AppDelegate.swift in Sources */,
+				FE2D95202B98354D00DC0418 /* CategoryController.swift in Sources */,
+				FE2D952A2B9A2D1600DC0418 /* ProfileController.swift in Sources */,
+				FE59D47A2BA7771000467602 /* DisplayProduct.swift in Sources */,
+				FE2D95262B98361400DC0418 /* SettingsController.swift in Sources */,
+				FE44C7592B83ED5C00D98BED /* Constans.swift in Sources */,
+				FE2D95242B9835B200DC0418 /* OrderController.swift in Sources */,
+				FE44C75B2B83F18800D98BED /* LoginController.swift in Sources */,
+				FE2D95222B98358800DC0418 /* SearchController.swift in Sources */,
+				FE44C7472B81531900D98BED /* SceneDelegate.swift in Sources */,
+				FE2D953C2BA2407300DC0418 /* ProductCell.swift in Sources */,
+				FE45EF342BBCA6CC00B8628F /* CategoryHolderCell.swift in Sources */,
+				FE2D95282B98A5A900DC0418 /* ProductsController.swift in Sources */,
+				FE2D952D2B9F8E2600DC0418 /* Product.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FE44C74A2B81531900D98BED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE44C74B2B81531900D98BED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FE44C74F2B81531A00D98BED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE44C7502B81531A00D98BED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE44C7532B81531A00D98BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE44C7542B81531A00D98BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE44C7562B81531A00D98BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0706057D1CF3259D7CC79AC /* Pods-jahids Shop.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "jahids Shop/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "swiftbeggin.com.jahids-Shop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE44C7572B81531A00D98BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 020B0D8CFBCED3D6DD39A538 /* Pods-jahids Shop.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "jahids Shop/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "swiftbeggin.com.jahids-Shop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE44C73C2B81531800D98BED /* Build configuration list for PBXProject "jahids Shop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE44C7532B81531A00D98BED /* Debug */,
+				FE44C7542B81531A00D98BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE44C7552B81531A00D98BED /* Build configuration list for PBXNativeTarget "jahids Shop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE44C7562B81531A00D98BED /* Debug */,
+				FE44C7572B81531A00D98BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE44C7392B81531800D98BED /* Project object */;
+}
