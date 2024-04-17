@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsController: UIViewController {
     
-    var items = ["My Profile", "Wishlist","My Orders","Settings","Logout"]
+    var items = ["My Profile", "Wishlist","My Orders","Settings", "Creat Product","Logout"]
     @IBOutlet weak var mTableView: UITableView!
 
     override func viewDidLoad() {
@@ -54,6 +54,12 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
                 self.storyboard?.instantiateViewController(withIdentifier: Constans.ProfileController) as? ProfileController {
                 self.navigationController?.pushViewController(profileController, animated: true)
             }
+        } else if indexPath.row == 4 {
+            if let creatProductController =
+                self.storyboard?.instantiateViewController(withIdentifier: Constans.createProductController) as? CreateProductController {
+                self.navigationController?.pushViewController(creatProductController, animated: true)
+            }
         }
+        
     }
 }

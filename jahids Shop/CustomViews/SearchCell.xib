@@ -19,7 +19,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-mL-2rY">
                         <rect key="frame" x="20" y="11" width="50" height="48.666666666666671"/>
-                        <color key="tintColor" name="theme400"/>
+                        <color key="tintColor" name="theme500"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="D3B-jU-amm"/>
                             <constraint firstAttribute="height" constant="50" id="ToB-GO-BzR"/>
@@ -28,7 +28,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug6-PD-4aT">
                         <rect key="frame" x="90" y="10" width="210" height="22"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="theme900"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-5S-c4U">
@@ -71,8 +71,11 @@
     </objects>
     <resources>
         <image name="soccerball" catalog="system" width="128" height="123"/>
-        <namedColor name="theme400">
-            <color red="1" green="0.60784313725490191" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="theme500">
+            <color red="1" green="0.49019607843137253" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="theme900">
+            <color red="0.50980392156862742" green="0.18823529411764706" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

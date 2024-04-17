@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="jahids_Shop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axc-2C-P4G">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="c3t-2u-fAG">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26E-i0-HD5">
+                        <rect key="frame" x="2" y="2" width="97" height="97"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.39215686274509803" blue="0.0" alpha="0.26368480960264901" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Axc-2C-P4G" secondAttribute="trailing" id="2RL-D5-jYQ"/>
+                <constraint firstItem="Axc-2C-P4G" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="F5J-wU-VrY"/>
+                <constraint firstItem="Axc-2C-P4G" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TfD-yl-cvc"/>
+                <constraint firstAttribute="bottom" secondItem="Axc-2C-P4G" secondAttribute="bottom" id="db4-EB-4jk"/>
+            </constraints>
+            <size key="customSize" width="101" height="101"/>
+            <connections>
+                <outlet property="CategoryImageView" destination="c3t-2u-fAG" id="rt7-jh-Uub"/>
+                <outlet property="categoryNameLavel" destination="26E-i0-HD5" id="ALW-9w-yOj"/>
+            </connections>
+            <point key="canvasLocation" x="109.16030534351144" y="36.971830985915496"/>
+        </collectionViewCell>
+    </objects>
+</document>

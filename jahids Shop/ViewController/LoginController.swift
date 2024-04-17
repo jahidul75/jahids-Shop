@@ -6,10 +6,17 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
+import KeychainSwift
 
 class LoginController: UIViewController {
     
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var usernameFaild: UITextField!
+    @IBOutlet weak var passwordFaild: UITextField!
+    
+    let keychain = KeychainSwift()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,24 +26,78 @@ class LoginController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = "Login"
+        
+        if let email = self.keychain.get("email") {
+            self.usernameFaild.text = email
+        }
+        
+        if let password = self.keychain.get("password") {
+            self.passwordFaild.text = password
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-     
-     
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func onClickLoginButton () {
-        self.login()
         
+        if validateLoginInfo() {
+            let email = self.usernameFaild.text!
+            let password = self.passwordFaild.text!
+            self.login(email: email, password: password)
+        }
+        //self.login()
+        
+    }
+    
+    func validateLoginInfo () -> Bool {
+        
+        guard let email = self.usernameFaild.text, email.isValidateEmail() else {
+            DisplayAlert(title: "Invalid email", massage: "Please enter a valid email")
+            return false
+        }
+        
+        guard let password = self.passwordFaild.text, password.isValidatePassword() else {
+            DisplayAlert(title: "password too short", massage: "please enter atleast 6 Charecter password")
+            return false
+        }
+        
+        return true
+    }
+    
+    func login (email: String, password: String) {
+        let url = RestClient.baseUrl + RestClient.loginUrl
+        let LoginRequest = LoginRequest(email: email, password: password)
+        let headers: HTTPHeaders = [
+            "Content-Type" : "Application/Json"
+        ]
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        AF.request(url, method: .post, parameters: LoginRequest, encoder: JSONParameterEncoder.default, headers: headers, interceptor: nil, requestModifier: nil).responseDecodable(of: LoginResponse.self) { response in
+            //debugPrint(response)
+            MBProgressHUD.hide(for: self.view, animated: true)
+            
+            switch (response.result) {
+                case .success:
+                print(response)
+                if let responsData = response.value {
+                    if let accesToken = responsData.access_token {
+                        self.writeToUserDefoults(key: "accessToken", Value: accesToken)
+                        
+                        self.keychain.set(email, forKey: "email")
+                        self.keychain.set(password, forKey: "password")
+                        
+                        self.navigate()
+                    } else if let statusCode = responsData.statusCode, let message = responsData.massage {
+                        self.DisplayAlert(title: "Login Failed", massage: message)
+                    }
+                }
+                case let .failure(error):
+                    print(error)
+            
+                }
+        }
+    }
+    
+    func navigate () {
         if let currentSceneDelegate = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             if let sceneDelegate = currentSceneDelegate.delegate as? SceneDelegate, let window = sceneDelegate.window {
                 //print(window.rootViewController)
@@ -48,9 +109,8 @@ class LoginController: UIViewController {
             }
         }
     }
-    func login () {
-        
-    }
+    
+    
     @IBAction func onClickSignUpButton () {
        if let signupController = self.storyboard?.instantiateViewController(withIdentifier: Constans.signupController) as? SignupController {
            //signupController.value = 1
