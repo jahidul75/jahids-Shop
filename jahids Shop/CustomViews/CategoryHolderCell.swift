@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import Foundation
+import SwiftUI
 import SwiftyJSON
 import Kingfisher
+import Alamofire
+
+protocol CategoryHolderCellDeligate: AnyObject {
+    func clothesDidSelected ()
+    func electronicsItemDidSelected ()
+    func sportsItemDidSelected()
+}
 
 class CategoryHolderCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    weak var daligate: CategoryHolderCellDeligate?
     
     var categories: [JSON] = [
         
@@ -19,6 +29,8 @@ class CategoryHolderCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.isUserInteractionEnabled = true
         
         self.categoryCollectionView.dataSource = self
         self.categoryCollectionView.delegate = self
@@ -31,6 +43,8 @@ class CategoryHolderCell: UICollectionViewCell {
         let categoryCellNib = UINib(nibName: CellIdentifier.categoryCell, bundle: nil)
         self.categoryCollectionView.register(categoryCellNib, forCellWithReuseIdentifier: CellIdentifier.categoryCell)
         
+        let categoryControllerNib = UINib(nibName: Constans.categoryController, bundle: nil)
+        self.categoryCollectionView.register(categoryControllerNib, forCellWithReuseIdentifier: Constans.categoryController)
         
     }
     
@@ -57,6 +71,8 @@ extension CategoryHolderCell: UICollectionViewDataSource {
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.categoryCell, for: indexPath) as! CategoryCell
         
         let data = self.categories[indexPath.row]
+        
+        
         if let name = data["name"].string {
             cell.categoryNameLavel.text = name
         }
@@ -72,6 +88,7 @@ extension CategoryHolderCell: UICollectionViewDataSource {
         
         return cell
     }
+    
 }
 
 extension CategoryHolderCell: UICollectionViewDelegateFlowLayout {
@@ -85,5 +102,20 @@ extension CategoryHolderCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     }
-    
+}
+
+extension CategoryHolderCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            daligate?.clothesDidSelected()
+        }
+        else if indexPath.row == 1 {
+            daligate?.electronicsItemDidSelected()
+        }
+        else if indexPath.row == 2 {
+            daligate?.sportsItemDidSelected()
+        }
+        
+    }
 }

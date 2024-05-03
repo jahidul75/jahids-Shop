@@ -50,7 +50,7 @@
             </constraints>
             <size key="customSize" width="94" height="77"/>
             <connections>
-                <outlet property="categoryCollectionView" destination="rVp-LG-6gk" id="uRo-uW-nsL"/>
+                <outlet property="categoryCollectionView" destination="rVp-LG-6gk" id="t37-ab-mcX"/>
             </connections>
             <point key="canvasLocation" x="80.916030534351137" y="29.929577464788736"/>
         </collectionViewCell>

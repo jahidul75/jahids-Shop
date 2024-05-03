@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,13 +29,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89f-t8-cLh">
-                                <rect key="frame" x="20" y="105" width="120" height="42"/>
+                                <rect key="frame" x="20" y="105" width="120" height="24.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" name="theme900"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwf-9q-KYH">
-                                <rect key="frame" x="20" y="152" width="120" height="50"/>
+                                <rect key="frame" x="20" y="134.66666666666666" width="120" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="b5R-EA-1cg"/>
                                 </constraints>
@@ -43,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3M-nD-6Ok">
-                                <rect key="frame" x="20" y="204" width="120" height="24"/>
+                                <rect key="frame" x="20" y="186.66666666666666" width="120" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="F38-ti-Qyv"/>
                                 </constraints>
@@ -51,29 +52,50 @@
                                 <color key="textColor" name="them900"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-Qa-4bu">
-                                <rect key="frame" x="20" y="233" width="120" height="32"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSQ-r5-1O9">
+                                <rect key="frame" x="5" y="215.66666666666666" width="150" height="40"/>
                                 <subviews>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="BD0-vD-nLd">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
-                                    </stepper>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCH-4x-SYE">
-                                        <rect key="frame" x="94" y="0.0" width="26" height="32"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kVo-ij-njL">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5f-o6-VvZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="40"/>
+                                                <color key="backgroundColor" name="theme600"/>
+                                                <color key="tintColor" name="theme100"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Order Now">
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0w-Hb-w3G">
+                                                <rect key="frame" x="77.666666666666686" y="0.0" width="72.333333333333314" height="40"/>
+                                                <color key="backgroundColor" name="theme200"/>
+                                                <color key="tintColor" name="theme700"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save To Cart">
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kVo-ij-njL" secondAttribute="trailing" id="EWe-BY-FJL"/>
+                                    <constraint firstItem="kVo-ij-njL" firstAttribute="leading" secondItem="gSQ-r5-1O9" secondAttribute="leading" id="UrM-L9-tc2"/>
+                                    <constraint firstItem="kVo-ij-njL" firstAttribute="top" secondItem="gSQ-r5-1O9" secondAttribute="top" id="iEE-F7-Q4a"/>
+                                    <constraint firstAttribute="height" constant="40" id="lgd-ie-kka"/>
+                                    <constraint firstAttribute="bottom" secondItem="kVo-ij-njL" secondAttribute="bottom" id="q7z-eJ-gYU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lAm-Qa-4bu" secondAttribute="trailing" constant="20" id="7nP-iw-PC1"/>
                             <constraint firstAttribute="trailing" secondItem="j9s-Bl-rUl" secondAttribute="trailing" constant="20" id="AZL-23-Tgu"/>
-                            <constraint firstItem="lAm-Qa-4bu" firstAttribute="leading" secondItem="DBD-qG-nyY" secondAttribute="leading" constant="20" id="EPH-LW-s9C"/>
+                            <constraint firstItem="gSQ-r5-1O9" firstAttribute="top" secondItem="P3M-nD-6Ok" secondAttribute="bottom" constant="5" id="Aya-wj-DFB"/>
+                            <constraint firstItem="gSQ-r5-1O9" firstAttribute="leading" secondItem="DBD-qG-nyY" secondAttribute="leading" constant="5" id="Clc-8L-xxL"/>
                             <constraint firstAttribute="trailing" secondItem="Cwf-9q-KYH" secondAttribute="trailing" constant="20" id="Itz-VH-d9u"/>
-                            <constraint firstItem="lAm-Qa-4bu" firstAttribute="top" secondItem="P3M-nD-6Ok" secondAttribute="bottom" constant="5" id="Onj-y8-dbN"/>
-                            <constraint firstAttribute="bottom" secondItem="lAm-Qa-4bu" secondAttribute="bottom" constant="5" id="QNI-wN-hLH"/>
+                            <constraint firstAttribute="trailing" secondItem="gSQ-r5-1O9" secondAttribute="trailing" constant="5" id="JA5-0h-9mo"/>
                             <constraint firstItem="j9s-Bl-rUl" firstAttribute="top" secondItem="DBD-qG-nyY" secondAttribute="top" constant="20" id="Sbi-Xu-w25"/>
                             <constraint firstItem="89f-t8-cLh" firstAttribute="leading" secondItem="DBD-qG-nyY" secondAttribute="leading" constant="20" id="UVI-VJ-xRk"/>
                             <constraint firstItem="Cwf-9q-KYH" firstAttribute="top" secondItem="89f-t8-cLh" secondAttribute="bottom" constant="5" id="XHd-hB-KJg"/>
@@ -97,12 +119,12 @@
             </constraints>
             <size key="customSize" width="175" height="260"/>
             <connections>
+                <outlet property="ProductCartButton" destination="q0w-Hb-w3G" id="OXi-cp-hGr"/>
                 <outlet property="ProductDescriptionLabel" destination="Cwf-9q-KYH" id="Rsb-ZF-K3Y"/>
-                <outlet property="itemQuantityLabel" destination="fCH-4x-SYE" id="vVc-Bo-jdd"/>
+                <outlet property="ProductOrderButton" destination="e5f-o6-VvZ" id="wCK-db-dlE"/>
                 <outlet property="productImageView" destination="j9s-Bl-rUl" id="BMN-cV-CxN"/>
                 <outlet property="productNameLavel" destination="89f-t8-cLh" id="hS8-uE-H98"/>
                 <outlet property="productPriceLabel" destination="P3M-nD-6Ok" id="3rh-51-Hhh"/>
-                <outlet property="stepper" destination="BD0-vD-nLd" id="S4q-Bk-CIE"/>
             </connections>
             <point key="canvasLocation" x="129.7709923664122" y="133.09859154929578"/>
         </collectionViewCell>
@@ -112,11 +134,26 @@
         <namedColor name="them900">
             <color red="0.078000001609325409" green="0.27799999713897705" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="theme100">
+            <color red="1" green="0.93699997663497925" blue="0.82700002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="theme200">
+            <color red="1" green="0.85900002717971802" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="theme500">
-            <color red="1" green="0.49019607843137253" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.49000000953674316" blue="0.039000000804662704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="theme600">
+            <color red="1" green="0.3919999897480011" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="theme700">
+            <color red="0.80000001192092896" green="0.27799999713897705" blue="0.0080000003799796104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme900">
-            <color red="0.50980392156862742" green="0.18823529411764706" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.50999999046325684" green="0.18799999356269836" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

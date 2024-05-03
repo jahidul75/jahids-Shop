@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ProductCell: UICollectionViewCell {
     
@@ -13,18 +14,22 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var productNameLavel: UILabel!
     @IBOutlet weak var ProductDescriptionLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var ProductOrderButton: UIButton!
+    @IBOutlet weak var ProductCartButton: UIButton!
     @IBOutlet weak var itemQuantityLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func setProductInformation (product: DisplayProduct) {
         self.productImageView.image = UIImage(systemName: "soccerball")
         self.productNameLavel.text = product.name
         self.ProductDescriptionLabel.text = product.description
+        self.ProductOrderButton.ApplyCorner(CornerRadius: 7.0, BorderWidth: 0.0, BorderColor: .clear)
+        self.ProductCartButton.ApplyCorner(CornerRadius: 7.0, BorderWidth: 0.0, BorderColor: .clear)
         
         let strokeEffect: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,

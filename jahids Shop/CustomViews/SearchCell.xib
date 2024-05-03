@@ -72,10 +72,10 @@
     <resources>
         <image name="soccerball" catalog="system" width="128" height="123"/>
         <namedColor name="theme500">
-            <color red="1" green="0.49019607843137253" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.49000000953674316" blue="0.039000000804662704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme900">
-            <color red="0.50980392156862742" green="0.18823529411764706" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.50999999046325684" green="0.18799999356269836" blue="0.046999998390674591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -1,19 +1,20 @@
-//
-//  CategoryVController.swift
-//  jahids Shop
-//
 //  Created by jahidul islam on 6/3/24.
-//
 
 import UIKit
 import Alamofire
 import MBProgressHUD
 import SwiftyJSON
+import Kingfisher
     
 
 class CategoryController: UIViewController {
     
     @IBOutlet weak var mCollectionView: UICollectionView!
+    //@IBOutlet weak var nCollectionView: UICollectionView!
+    
+    var populerProducts: [JSON] = [
+        
+    ]
     
     let products: [DisplayProduct] = [
         DisplayProduct(id: 1, name: "Football", description: "The FIFA World Cup is a professional football tournament held between national football teams, organised by FIFA. The tournament has been contested by 32 teams since the 1998 event", discountedPrice: 100.0, originalPrice: 120.0),
@@ -43,6 +44,9 @@ class CategoryController: UIViewController {
         let categoryHolderNib = UINib(nibName: CellIdentifier.categoryHolderCell, bundle: nil)
         self.mCollectionView.register(categoryHolderNib, forCellWithReuseIdentifier: CellIdentifier.categoryHolderCell)
         
+        let categoryCellNib = UINib(nibName: CellIdentifier.categoryCell, bundle: nil)
+        self.mCollectionView.register(categoryCellNib, forCellWithReuseIdentifier: CellIdentifier.categoryCell)
+        
         let sectionHeaderNib = UINib(nibName: CellIdentifier.collectionSectionHeaderView, bundle: nil)
         self.mCollectionView.register(sectionHeaderNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellIdentifier.collectionSectionHeaderView)
         
@@ -52,7 +56,8 @@ class CategoryController: UIViewController {
 }
 
 extension CategoryController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int { 
         return 2
     }
     
@@ -73,8 +78,11 @@ extension CategoryController: UICollectionViewDataSource {
         if section == 0 {
             let categoryHolderCell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.categoryHolderCell, for: indexPath) as! CategoryHolderCell
             categoryHolderCell.setCategoriesAndReload(cats: self.categoryCollection)
+            categoryHolderCell.daligate = self
             return categoryHolderCell
+            
         } else {
+            
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.productCell, for: indexPath) as! ProductCell
             let product = self.products[row]
@@ -86,34 +94,40 @@ extension CategoryController: UICollectionViewDataSource {
 }
 
 extension CategoryController: UICollectionViewDelegate {
+        
+    
     
 }
 
 extension CategoryController: UICollectionViewDelegateFlowLayout {
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let section = indexPath.section
         if section == 0 {
             return CGSize(width: self.view.frame.width, height: 120.0)
+           // return CGSize(width: 120.0, height: 101.0)
         }
         return sizeForItem()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: 0.0, left: 10.0, bottom: 10.0, right: 10.0)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let header = mCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellIdentifier.collectionSectionHeaderView, for: indexPath) as! CollectionSectionHeaderView
         if indexPath.section == 0 {
             header.headerTitleLavel?.text = "Products Categories"
+            
         } else {
             header.headerTitleLavel?.text = "Pular Products"
         }
         
         return header
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -167,5 +181,34 @@ extension CategoryController {
             }
         }
     }
+}
+
+extension CategoryController: CategoryHolderCellDeligate {
     
+    func electronicsItemDidSelected() {
+        if let electronisController = self.storyboard?.instantiateViewController(withIdentifier: Constans.electronicsItemController) as? ElectronicItemsController {
+            self.navigationController?.pushViewController(electronisController, animated: true)
+        }
+    }
+    
+    func clothesDidSelected() {
+        if let ClothesController = self.storyboard?.instantiateViewController(withIdentifier: Constans.clothesController) as? ClothesController {
+            self.navigationController?.pushViewController(ClothesController, animated: true)
+        }
+    }
+    
+    func sportsItemDidSelected() {
+        if let sportsController = self.storyboard?.instantiateViewController(withIdentifier: Constans.sportsController) as? SportsController {
+            self.navigationController?.pushViewController(sportsController, animated: true)
+        }
+    }
+}
+
+// First Category Items Contol
+extension CategoryController {
+    func changeView () {
+        if let electronisController = self.storyboard?.instantiateViewController(withIdentifier: Constans.electronicsItemController) as? ElectronicItemsController {
+            self.navigationController?.pushViewController(electronisController, animated: true)
+        }
+    }
 }

@@ -13,7 +13,13 @@ class Constans {
     public static let signupController = "SignupController"
     public static let tabController = "tabController"
     public static let ProfileController = "ProfileController"
+    public static let orderController = "OrderController"
     public static let createProductController = "CreateProductController"
+    public static let categoryController = "CategoryController"
+    public static let categoryHolderController = "CategoryHolderController"
+    public static let clothesController = "ClothesController"
+    public static let electronicsItemController = "ElectronicsItemController"
+    public static let sportsController = "SportsController"
 }
 
 class CellIdentifier {
@@ -22,6 +28,8 @@ class CellIdentifier {
     public static let categoryHolderCell = "CategoryHolderCell"
     public static let categoryCell = "CategoryCell"
     public static let collectionSectionHeaderView = "CollectionSectionHeaderView"
+    public static let electronicsItemCell = "ElectronicsItemCell"
+    public static let orderCell = "OrderCell"
 }
 
 class RestClient {
@@ -30,4 +38,5 @@ class RestClient {
     public static let loginUrl = "/api/v1/auth/login"
     public static let profileUrl = "/api/v1/auth/profile"
     public static let photoUploadUrl = "/api/v1/files/upload"
+    public static let productsUrl = "/co/api/v1/products"
 }
