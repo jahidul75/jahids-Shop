@@ -18,10 +18,15 @@ protocol CategoryHolderCellDeligate: AnyObject {
     func sportsItemDidSelected()
 }
 
+protocol CategorysTitle: AnyObject {
+    func changeFirstItemTitle(data: JSON)
+}
+
 class CategoryHolderCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     weak var daligate: CategoryHolderCellDeligate?
+    weak var ChangeTitle: CategorysTitle?
     
     var categories: [JSON] = [
         
@@ -119,3 +124,4 @@ extension CategoryHolderCell: UICollectionViewDelegate {
         
     }
 }
+

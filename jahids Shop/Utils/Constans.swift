@@ -38,5 +38,5 @@ class RestClient {
     public static let loginUrl = "/api/v1/auth/login"
     public static let profileUrl = "/api/v1/auth/profile"
     public static let photoUploadUrl = "/api/v1/files/upload"
-    public static let productsUrl = "/co/api/v1/products"
+    public static let productsUrl = "/api/v1/products"
 }

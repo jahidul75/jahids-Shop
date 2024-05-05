@@ -16,11 +16,17 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var ProductOrderButton: UIButton!
     @IBOutlet weak var ProductCartButton: UIButton!
-    @IBOutlet weak var itemQuantityLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var ProductView: UIView!
+    
+    var productsFromAPI: [JSON] = [
+        
+    ]
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.ProductView.ApplyCorner(CornerRadius: 5.0, BorderWidth: 1.0, BorderColor: .systemRed)
+        self.ProductCartButton.ApplyCorner(CornerRadius: 7.0, BorderWidth: 0.0, BorderColor: .clear)
         
     }
     
@@ -28,8 +34,6 @@ class ProductCell: UICollectionViewCell {
         self.productImageView.image = UIImage(systemName: "soccerball")
         self.productNameLavel.text = product.name
         self.ProductDescriptionLabel.text = product.description
-        self.ProductOrderButton.ApplyCorner(CornerRadius: 7.0, BorderWidth: 0.0, BorderColor: .clear)
-        self.ProductCartButton.ApplyCorner(CornerRadius: 7.0, BorderWidth: 0.0, BorderColor: .clear)
         
         let strokeEffect: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,

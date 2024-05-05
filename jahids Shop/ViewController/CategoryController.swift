@@ -51,6 +51,7 @@ class CategoryController: UIViewController {
         self.mCollectionView.register(sectionHeaderNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellIdentifier.collectionSectionHeaderView)
         
         self.fetchProductCategories()
+        self.fetchProducts()
     }
 
 }
@@ -65,7 +66,7 @@ extension CategoryController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return self.products.count
+            return self.populerProducts.count
         }
     }
     
@@ -85,8 +86,37 @@ extension CategoryController: UICollectionViewDataSource {
             
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.productCell, for: indexPath) as! ProductCell
-            let product = self.products[row]
-            cell.setProductInformation(product: product)
+            //let product = self.products[row]
+            //cell.setProductInformation(product: product)
+            let data = self.populerProducts[indexPath.row]
+            
+            if let image = data["images"][0].string, let url = URL(string: image) {
+                cell.productImageView.kf.setImage(with: url)
+            }
+            
+            if let title = data["title"].string {
+                cell.productNameLavel.text = title
+            }
+            if let descripsion = data["description"].string {
+                cell.ProductDescriptionLabel.text = descripsion
+            }
+            
+            if var price = data["price"].int {
+                let strokeEffect: [NSAttributedString.Key : Any] = [
+                    NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                    NSAttributedString.Key.strikethroughColor: UIColor.red,
+                ]
+                
+                price *= 10
+                var mainPrice = ((price*15)/100) + price
+                let originalPrice = NSAttributedString(string: "TK " + String(mainPrice), attributes: strokeEffect)
+                let finalAttributedString = NSMutableAttributedString()
+                finalAttributedString.append(originalPrice)
+                finalAttributedString.append(NSAttributedString(string: " TK "))
+                finalAttributedString.append(NSAttributedString(string: String(price)))
+                
+                cell.productPriceLabel.attributedText = finalAttributedString
+            }
             
             return cell
         }
@@ -124,7 +154,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
             header.headerTitleLavel?.text = "Products Categories"
             
         } else {
-            header.headerTitleLavel?.text = "Pular Products"
+            header.headerTitleLavel?.text = "15% Flat Discounts"
         }
         
         return header
@@ -146,7 +176,39 @@ extension CategoryController {
         let totalSpacing = (spacingAtEdges * 2) + (Double (numberOfItemsInEachRow - 1) * spacingBetweenItem)
         let itemWidth = (screenWidth - totalSpacing) / 2
         
-        return CGSize(width: itemWidth, height: 265.0)
+        return CGSize(width: itemWidth, height: 260.0)
+    }
+}
+
+extension CategoryController {
+    func fetchProducts () {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let url = RestClient.baseUrl + RestClient.productsUrl
+        AF.request(url).responseData { response in
+            //debugPrint(response)
+            MBProgressHUD.hide(for: self.view, animated: true)
+            
+            switch (response.result) {
+            case .success:
+                print("Validation Successful")
+                
+                if let responseData = response.value {
+                    do {
+                        let json = try JSON (data: responseData)
+                        //print(json)
+                        if let array = json.array {
+                            self.populerProducts = array
+                            self.mCollectionView.reloadData()
+                        }
+                        //print("CategoryCOllection = \(self.categoryCollection)")
+                    } catch let error {
+                        print(error)
+                    }
+                }
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -200,15 +262,6 @@ extension CategoryController: CategoryHolderCellDeligate {
     func sportsItemDidSelected() {
         if let sportsController = self.storyboard?.instantiateViewController(withIdentifier: Constans.sportsController) as? SportsController {
             self.navigationController?.pushViewController(sportsController, animated: true)
-        }
-    }
-}
-
-// First Category Items Contol
-extension CategoryController {
-    func changeView () {
-        if let electronisController = self.storyboard?.instantiateViewController(withIdentifier: Constans.electronicsItemController) as? ElectronicItemsController {
-            self.navigationController?.pushViewController(electronisController, animated: true)
         }
     }
 }

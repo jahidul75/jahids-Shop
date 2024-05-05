@@ -44,14 +44,13 @@
 		FE45EF522BD2DECB00B8628F /* ElectronicsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF502BD2DECB00B8628F /* ElectronicsItemCell.swift */; };
 		FE45EF532BD2DECB00B8628F /* ElectronicsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE45EF512BD2DECB00B8628F /* ElectronicsItemCell.xib */; };
 		FE45EF552BD3B6B900B8628F /* ElectronicItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF542BD3B6B900B8628F /* ElectronicItemsController.swift */; };
-		FE45EF572BD968DF00B8628F /* secondCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF562BD968DF00B8628F /* secondCategoryResponse.swift */; };
-		FE45EF632BE2BB6C00B8628F /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF622BE2BB6C00B8628F /* ProductsResponse.swift */; };
 		FE45EF662BE3B5B300B8628F /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF642BE3B5B300B8628F /* OrderCell.swift */; };
 		FE45EF672BE3B5B300B8628F /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE45EF652BE3B5B300B8628F /* OrderCell.xib */; };
 		FE45EF6B2BE3E15600B8628F /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF6A2BE3E15600B8628F /* Orders.swift */; };
 		FE45EF6D2BE3E16E00B8628F /* DisplayOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF6C2BE3E16E00B8628F /* DisplayOrders.swift */; };
 		FE45EF6F2BE58B4700B8628F /* ClothesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF6E2BE58B4700B8628F /* ClothesController.swift */; };
 		FE45EF712BE58D3000B8628F /* SportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF702BE58D3000B8628F /* SportsController.swift */; };
+		FE45EF732BE78C4400B8628F /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE45EF722BE78C4400B8628F /* ProductResponse.swift */; };
 		FE47154F2B87969900F79CD6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE47154E2B87969900F79CD6 /* UIViewExtension.swift */; };
 		FE59D47A2BA7771000467602 /* DisplayProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59D4792BA7771000467602 /* DisplayProduct.swift */; };
 /* End PBXBuildFile section */
@@ -98,14 +97,13 @@
 		FE45EF502BD2DECB00B8628F /* ElectronicsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicsItemCell.swift; sourceTree = "<group>"; };
 		FE45EF512BD2DECB00B8628F /* ElectronicsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElectronicsItemCell.xib; sourceTree = "<group>"; };
 		FE45EF542BD3B6B900B8628F /* ElectronicItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicItemsController.swift; sourceTree = "<group>"; };
-		FE45EF562BD968DF00B8628F /* secondCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondCategoryResponse.swift; sourceTree = "<group>"; };
-		FE45EF622BE2BB6C00B8628F /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		FE45EF642BE3B5B300B8628F /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		FE45EF652BE3B5B300B8628F /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		FE45EF6A2BE3E15600B8628F /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		FE45EF6C2BE3E16E00B8628F /* DisplayOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayOrders.swift; sourceTree = "<group>"; };
 		FE45EF6E2BE58B4700B8628F /* ClothesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesController.swift; sourceTree = "<group>"; };
 		FE45EF702BE58D3000B8628F /* SportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsController.swift; sourceTree = "<group>"; };
+		FE45EF722BE78C4400B8628F /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 		FE47154E2B87969900F79CD6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FE59D4792BA7771000467602 /* DisplayProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,8 +200,7 @@
 				FE45EF462BC310F200B8628F /* LoginResponse.swift */,
 				FE45EF482BC5C51500B8628F /* ProfileResponse.swift */,
 				FE45EF4C2BCE778F00B8628F /* FileUploadResponse.swift */,
-				FE45EF562BD968DF00B8628F /* secondCategoryResponse.swift */,
-				FE45EF622BE2BB6C00B8628F /* ProductsResponse.swift */,
+				FE45EF722BE78C4400B8628F /* ProductResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -230,8 +227,8 @@
 				FE2D95272B98A5A900DC0418 /* ProductsController.swift */,
 				FE2D95292B9A2D1600DC0418 /* ProfileController.swift */,
 				FE45EF4A2BCB00B000B8628F /* CreateProductController.swift */,
-				FE45EF542BD3B6B900B8628F /* ElectronicItemsController.swift */,
 				FE45EF6E2BE58B4700B8628F /* ClothesController.swift */,
+				FE45EF542BD3B6B900B8628F /* ElectronicItemsController.swift */,
 				FE45EF702BE58D3000B8628F /* SportsController.swift */,
 			);
 			path = ViewController;
@@ -426,8 +423,8 @@
 				FE2D95382BA210E800DC0418 /* SearchCell.swift in Sources */,
 				FE45EF4D2BCE778F00B8628F /* FileUploadResponse.swift in Sources */,
 				FE45EF6F2BE58B4700B8628F /* ClothesController.swift in Sources */,
-				FE45EF572BD968DF00B8628F /* secondCategoryResponse.swift in Sources */,
 				FE217B2B2B90C78600907F57 /* SignupController.swift in Sources */,
+				FE45EF732BE78C4400B8628F /* ProductResponse.swift in Sources */,
 				FE45EF662BE3B5B300B8628F /* OrderCell.swift in Sources */,
 				FE45EF382BBCAACC00B8628F /* CollectionSectionHeaderView.swift in Sources */,
 				FE45EF412BC2A77C00B8628F /* UiViewControllerExtension.swift in Sources */,
@@ -435,7 +432,6 @@
 				FE45EF442BC310CC00B8628F /* LoginRequests.swift in Sources */,
 				FE44C7492B81531900D98BED /* SplashController.swift in Sources */,
 				FE44C7452B81531800D98BED /* AppDelegate.swift in Sources */,
-				FE45EF632BE2BB6C00B8628F /* ProductsResponse.swift in Sources */,
 				FE2D95202B98354D00DC0418 /* CategoryController.swift in Sources */,
 				FE45EF6D2BE3E16E00B8628F /* DisplayOrders.swift in Sources */,
 				FE2D952A2B9A2D1600DC0418 /* ProfileController.swift in Sources */,
