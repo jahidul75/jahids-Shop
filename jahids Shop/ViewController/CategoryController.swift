@@ -176,7 +176,7 @@ extension CategoryController {
         let totalSpacing = (spacingAtEdges * 2) + (Double (numberOfItemsInEachRow - 1) * spacingBetweenItem)
         let itemWidth = (screenWidth - totalSpacing) / 2
         
-        return CGSize(width: itemWidth, height: 260.0)
+        return CGSize(width: itemWidth, height: 270.0)
     }
 }
 
@@ -260,7 +260,7 @@ extension CategoryController: CategoryHolderCellDeligate {
     }
     
     func sportsItemDidSelected() {
-        if let sportsController = self.storyboard?.instantiateViewController(withIdentifier: Constans.sportsController) as? SportsController {
+        if let sportsController = self.storyboard?.instantiateViewController(withIdentifier: Constans.sportsController) as? FurnitureController {
             self.navigationController?.pushViewController(sportsController, animated: true)
         }
     }

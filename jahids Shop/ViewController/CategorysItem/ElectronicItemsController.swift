@@ -1,70 +1,55 @@
 //
-//  ClothesController.swift
+//  ElectronicsItemController.swift
 //  jahids Shop
 //
-//  Created by jahidul islam on 4/5/24.
+//  Created by jahidul islam on 20/4/24.
 //
 
 import UIKit
 import SwiftyJSON
-import MBProgressHUD
 import Alamofire
+import MBProgressHUD
 import Kingfisher
 
-class ClothesController: UIViewController {
+class ElectronicItemsController: UIViewController {
     
-    @IBOutlet weak var ClothesCollection: UICollectionView!
+    @IBOutlet weak var ElectronisCollection: UICollectionView!
     
-    var clothes: [JSON] = [
-        
+    var electronis: [JSON] = [
+    
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Clothes Item"
+        self.navigationItem.title = "Electronics Item"
         
-        self.ClothesCollection.dataSource = self
-        self.ClothesCollection.delegate = self
+        self.ElectronisCollection.dataSource = self
+        self.ElectronisCollection.delegate = self
         
-        self.ClothesCollection.setCollectionViewLayout(UICollectionViewFlowLayout.init(), animated: true)
+        self.ElectronisCollection.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: true)
         
         let productNib = UINib(nibName: CellIdentifier.productCell, bundle: nil)
-        self.ClothesCollection.register(productNib, forCellWithReuseIdentifier: CellIdentifier.productCell)
+        self.ElectronisCollection.register(productNib, forCellWithReuseIdentifier: CellIdentifier.productCell)
         
-        self.fetchClothesCategories()
+        self.fetchElectronisProducts()
     }
 }
 
-extension ClothesController: UICollectionViewDataSource {
+extension ElectronicItemsController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.clothes.count
+        return self.electronis.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.productCell, for: indexPath) as! ProductCell
-        //let product = self.products[indexPath.row]
-        //cell.setProductInformation(product: product)
         
-        let data = self.clothes[indexPath.row]
-        
-        /*if let categorys = data["category"]["id"].int, categorys == 1{
-            if let title = data["title"].string {
-                 cell.productNameLavel.text = title
-             }
-             if let descripsion = data["description"].string {
-                 cell.ProductDescriptionLabel.text = descripsion
-             }
-             //print("\(data["image"])")
-             if let image = data["images"][0].string, let url = URL(string: image) {
-                 cell.productImageView.kf.setImage(with: url)
-             }
-        }*/
+        let data = self.electronis[indexPath.row]
         
        if let title = data["title"].string {
             cell.productNameLavel.text = title
@@ -72,7 +57,6 @@ extension ClothesController: UICollectionViewDataSource {
         if let descripsion = data["description"].string {
             cell.ProductDescriptionLabel.text = descripsion
         }
-        //print("\(data["image"])")
         if let image = data["images"][0].string, let url = URL(string: image) {
             cell.productImageView.kf.setImage(with: url)
         }
@@ -93,12 +77,11 @@ extension ClothesController: UICollectionViewDataSource {
             cell.productPriceLabel.attributedText = finalAttributedString
         }
         
-        
         return cell
     }
 }
 
-extension ClothesController: UICollectionViewDelegateFlowLayout {
+extension ElectronicItemsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -111,7 +94,7 @@ extension ClothesController: UICollectionViewDelegateFlowLayout {
         let finalSize = (screensize - totalSpacing) / 2
         
         
-        return CGSize(width: finalSize, height: 260)
+        return CGSize(width: finalSize, height: 270.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -121,12 +104,12 @@ extension ClothesController: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension ClothesController {
-    func fetchClothesCategories () {
+extension ElectronicItemsController {
+    func fetchElectronisProducts () {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let url = RestClient.baseUrl + RestClient.productsUrl
+        let url = RestClient.baseUrl + RestClient.secondCategoryUrl
         AF.request(url).responseData { response in
-            //debugPrint(response)
+            
             MBProgressHUD.hide(for: self.view, animated: true)
             
             switch (response.result) {
@@ -136,12 +119,12 @@ extension ClothesController {
                 if let responseData = response.value {
                     do {
                         let json = try JSON (data: responseData)
-                        //print(json)
+                        
                         if let array = json.array {
-                            self.clothes = array
-                            self.ClothesCollection.reloadData()
+                            self.electronis = array
+                            self.ElectronisCollection.reloadData()
                         }
-                        //print("CategoryCOllection = \(self.categoryCollection)")
+                        
                     } catch let error {
                         print(error)
                     }

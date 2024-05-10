@@ -1,10 +1,3 @@
-//
-//  Constans.swift
-//  jahids Shop
-//
-//  Created by jahidul islam on 20/2/24.
-//
-
 import Foundation
 
 class Constans {
@@ -28,7 +21,6 @@ class CellIdentifier {
     public static let categoryHolderCell = "CategoryHolderCell"
     public static let categoryCell = "CategoryCell"
     public static let collectionSectionHeaderView = "CollectionSectionHeaderView"
-    public static let electronicsItemCell = "ElectronicsItemCell"
     public static let orderCell = "OrderCell"
 }
 
@@ -39,4 +31,7 @@ class RestClient {
     public static let profileUrl = "/api/v1/auth/profile"
     public static let photoUploadUrl = "/api/v1/files/upload"
     public static let productsUrl = "/api/v1/products"
+    public static let firstCategoryUrl = "/api/v1/products/?categoryId=1"
+    public static let secondCategoryUrl = "/api/v1/products/?categoryId=2"
+    public static let thardCategoryUrl = "/api/v1/products/?categoryId=3"
 }

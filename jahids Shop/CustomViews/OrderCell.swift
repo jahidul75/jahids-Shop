@@ -17,6 +17,7 @@ class OrderCell: UICollectionViewCell {
     @IBOutlet weak var orderCoantity: UILabel!
     @IBOutlet weak var orderStepper: UIStepper!
     @IBOutlet weak var orderView: UIView!
+    @IBOutlet weak var orderSwitch: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,5 +42,4 @@ class OrderCell: UICollectionViewCell {
         
         self.orderProductPrice.attributedText = finalAttributedString
     }
-
 }
