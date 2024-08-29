@@ -1,9 +1,3 @@
-//
-//  ClothesController.swift
-//  jahids Shop
-//
-//  Created by jahidul islam on 4/5/24.
-//
 
 import UIKit
 import SwiftyJSON
@@ -11,32 +5,32 @@ import MBProgressHUD
 import Alamofire
 import Kingfisher
 
-class ClothesController: UIViewController {
+class CategoryViewController: UIViewController {
     
-    @IBOutlet weak var ClothesCollection: UICollectionView!
+    @IBOutlet weak var CategorysViewCollection: UICollectionView!
     
-    var clothes: [JSON] = [
+    @Published var clothes: [JSON] = [
         
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Clothes Item"
+        self.navigationItem.title = ViewDetails.title + " Items"
         
-        self.ClothesCollection.dataSource = self
-        self.ClothesCollection.delegate = self
+        self.CategorysViewCollection.dataSource = self
+        self.CategorysViewCollection.delegate = self
         
-        self.ClothesCollection.setCollectionViewLayout(UICollectionViewFlowLayout.init(), animated: true)
+        self.CategorysViewCollection.setCollectionViewLayout(UICollectionViewFlowLayout.init(), animated: true)
         
         let productNib = UINib(nibName: CellIdentifier.productCell, bundle: nil)
-        self.ClothesCollection.register(productNib, forCellWithReuseIdentifier: CellIdentifier.productCell)
+        self.CategorysViewCollection.register(productNib, forCellWithReuseIdentifier: CellIdentifier.productCell)
         
         self.fetchClothesCategories()
     }
 }
 
-extension ClothesController: UICollectionViewDataSource {
+extension CategoryViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -58,7 +52,7 @@ extension ClothesController: UICollectionViewDataSource {
         if let descripsion = data["description"].string {
             cell.ProductDescriptionLabel.text = descripsion
         }
-        if let image = data["images"][0].string, let url = URL(string: image) {
+        if let image = data["image"].string, let url = URL(string: image) {
             cell.productImageView.kf.setImage(with: url)
         }
         if var price = data["price"].int {
@@ -68,7 +62,7 @@ extension ClothesController: UICollectionViewDataSource {
             ]
             
             price *= 10
-            var mainPrice = ((price*15)/100) + price
+            let mainPrice = ((price*15)/100) + price
             let originalPrice = NSAttributedString(string: "TK " + String(mainPrice), attributes: strokeEffect)
             let finalAttributedString = NSMutableAttributedString()
             finalAttributedString.append(originalPrice)
@@ -83,7 +77,8 @@ extension ClothesController: UICollectionViewDataSource {
     }
 }
 
-extension ClothesController: UICollectionViewDelegateFlowLayout {
+
+extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -105,11 +100,17 @@ extension ClothesController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension CategoryViewController: UICollectionViewDelegate {
 
-extension ClothesController {
+    
+    
+}
+
+
+extension CategoryViewController {
     func fetchClothesCategories () {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let url = RestClient.baseUrl + RestClient.firstCategoryUrl
+        let url = RestClient.baseUrl + RestClient.firstCategoryUrl + String(ViewDetails.id)
         AF.request(url).responseData { response in
             
             MBProgressHUD.hide(for: self.view, animated: true)
@@ -124,7 +125,7 @@ extension ClothesController {
                         
                         if let array = json.array {
                             self.clothes = array
-                            self.ClothesCollection.reloadData()
+                            self.CategorysViewCollection.reloadData()
                         }
                         
                     } catch let error {
@@ -137,3 +138,4 @@ extension ClothesController {
         }
     }
 }
+
