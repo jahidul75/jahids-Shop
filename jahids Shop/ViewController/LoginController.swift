@@ -23,27 +23,30 @@ class LoginController: UIViewController {
         
         let logoBorderColor = UIColor(named: "theme200") ?? UIColor.systemCyan
         self.logoImageView.ApplyCorner(CornerRadius: 15.0, BorderWidth: 2.0, BorderColor: logoBorderColor)
-
+        
+        usernameFaild.text = "jahidulcmt86@gmail.com"
+        passwordFaild.text = "12345678"
         // Do any additional setup after loading the view.
         self.title = "Login"
         
-        if let email = self.keychain.get("email") {
+        /*if let email = self.keychain.get("email") {
             self.usernameFaild.text = email
-        }
+        }*/
         
-        if let password = self.keychain.get("password") {
+        /*if let password = self.keychain.get("password") {
             self.passwordFaild.text = password
-        }
+        }*/
     }
     
     
     @IBAction func onClickLoginButton () {
         
-        if validateLoginInfo() {
+        /*if validateLoginInfo() {
             let email = self.usernameFaild.text!
             let password = self.passwordFaild.text!
             self.login(email: email, password: password)
-        }
+        }*/
+        self.navigate()
         //self.login()
         
     }
@@ -63,7 +66,7 @@ class LoginController: UIViewController {
         return true
     }
     
-    func login (email: String, password: String) {
+    /*func login (email: String, password: String) {
         let url = RestClient.baseUrl + RestClient.loginUrl
         let LoginRequest = LoginRequest(email: email, password: password)
         let headers: HTTPHeaders = [
@@ -77,7 +80,7 @@ class LoginController: UIViewController {
             
             switch (response.result) {
                 case .success:
-                print(response)
+                //print(response)
                 if let responsData = response.value {
                     if let accesToken = responsData.access_token {
                         self.writeToUserDefoults(key: "accessToken", Value: accesToken)
@@ -86,7 +89,7 @@ class LoginController: UIViewController {
                         self.keychain.set(password, forKey: "password")
                         
                         self.navigate()
-                    } else if let statusCode = responsData.statusCode, let message = responsData.massage {
+                    } else if let message = responsData.massage {
                         self.DisplayAlert(title: "Login Failed", massage: message)
                     }
                 }
@@ -95,19 +98,33 @@ class LoginController: UIViewController {
             
                 }
         }
-    }
+    }*/
     
     func navigate () {
-        if let currentSceneDelegate = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            if let sceneDelegate = currentSceneDelegate.delegate as? SceneDelegate, let window = sceneDelegate.window {
-                //print(window.rootViewController)
-                
-              if let tabController =
-                    self.storyboard?.instantiateViewController(withIdentifier: Constans.tabController) as? UITabBarController {
-                    window.rootViewController = tabController
+        guard let userName = usernameFaild.text else {return}
+        guard let password = passwordFaild.text else {return}
+        
+        if userName.count >= 10 && password.count >= 6 {
+            if let currentSceneDelegate = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                if let sceneDelegate = currentSceneDelegate.delegate as? SceneDelegate, let window = sceneDelegate.window {
+                    //print(window.rootViewController)
+                    
+                  if let tabController =
+                        self.storyboard?.instantiateViewController(withIdentifier: Constans.tabController) as? UITabBarController {
+                        window.rootViewController = tabController
+                    }
                 }
             }
+        }else if userName.count < 10 {
+            let aler = UIAlertController(title: "username invalid", message: "Please enter valid username", preferredStyle: .alert)
+            aler.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(aler, animated: true)
+        }else if password.count < 6 {
+            let alert = UIAlertController(title: "your password to shot", message: "Please enter minium 6 digit password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            self.present(alert, animated: true)
         }
+
     }
     
     

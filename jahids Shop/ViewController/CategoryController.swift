@@ -16,15 +16,6 @@ class CategoryController: UIViewController {
         
     ]
     
-    let products: [DisplayProduct] = [
-        DisplayProduct(id: 1, name: "Football", description: "The FIFA World Cup is a professional football tournament held between national football teams, organised by FIFA. The tournament has been contested by 32 teams since the 1998 event", discountedPrice: 100.0, originalPrice: 120.0),
-        DisplayProduct(id: 2, name: "Cricket Bat", description: "Standard Cricket Bat in mid range. The tournament has been contested by 32 teams since the 1998 event",discountedPrice: 75.0, originalPrice: 100.0),
-        DisplayProduct(id: 3, name: "Hockey Stick", description: "Standard Hockey Stick in mid range", discountedPrice: 70.0, originalPrice: 80.0),
-        DisplayProduct(id: 4, name: "Busket Ball", description: "Standard Busket Ball in mid range", discountedPrice: 100.0, originalPrice: 110.0),
-        DisplayProduct(id: 5, name: "Nike Shose", description: "Standard Nike Shoes in mid range. this is my favourit shoes. nike Brand ambasador messi, ronaldo and many sports player", discountedPrice: 80.0, originalPrice: 90.0),
-        DisplayProduct(id: 6, name: "Adiddas Jersey", description: "Standard Adiddas Jersey in mid range", discountedPrice: 90.0, originalPrice: 100.0)
-    ]
-    
     var categoryCollection: [JSON] = []
 
     override func viewDidLoad() {
@@ -53,12 +44,23 @@ class CategoryController: UIViewController {
         self.fetchProductCategories()
         self.fetchProducts()
     }
+    
+    @objc func btnOrderAction (_ sender: UIButton) {
+        if let cartVC = storyboard?.instantiateViewController(withIdentifier: "OrderController") as? OrderController {
+            let data = populerProducts[sender.tag]
+            let info = cart(image: "image", title: "title", price: 120)
+            cartVC.arr = "jahidul"
+            //cartVC.arr.append(contentsOf: "jahidul")
+            print("Value Changed tag \(sender.tag)")
+        }
+        
+    }
 
 }
 
 extension CategoryController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int { 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
@@ -74,12 +76,12 @@ extension CategoryController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let section = indexPath.section
-        let row = indexPath.row
+        //let row = indexPath.row
         
         if section == 0 {
             let categoryHolderCell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.categoryHolderCell, for: indexPath) as! CategoryHolderCell
             categoryHolderCell.setCategoriesAndReload(cats: self.categoryCollection)
-            categoryHolderCell.daligate = self
+            categoryHolderCell.delegate = self
             return categoryHolderCell
             
         } else {
@@ -88,9 +90,11 @@ extension CategoryController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.productCell, for: indexPath) as! ProductCell
             //let product = self.products[row]
             //cell.setProductInformation(product: product)
+            cell.ProductCartButton.tag = indexPath.row
+            cell.ProductCartButton.addTarget(self, action: #selector(btnOrderAction), for: .touchUpInside)
             let data = self.populerProducts[indexPath.row]
             
-            if let image = data["images"][0].string, let url = URL(string: image) {
+            if let image = data["image"].string, let url = URL(string: image) {
                 cell.productImageView.kf.setImage(with: url)
             }
             
@@ -108,7 +112,7 @@ extension CategoryController: UICollectionViewDataSource {
                 ]
                 
                 price *= 10
-                var mainPrice = ((price*15)/100) + price
+                let mainPrice = ((price*15)/100) + price
                 let originalPrice = NSAttributedString(string: "TK " + String(mainPrice), attributes: strokeEffect)
                 let finalAttributedString = NSMutableAttributedString()
                 finalAttributedString.append(originalPrice)
@@ -125,7 +129,29 @@ extension CategoryController: UICollectionViewDataSource {
 
 extension CategoryController: UICollectionViewDelegate {
         
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let data = self.populerProducts[indexPath.row]
+        
+        if let image = data["image"].string {
+            ViewDetails.image = image
+        }
+        
+        if let title = data["title"].string {
+            ViewDetails.name = title
+        }
+        if let descripsion = data["description"].string {
+            ViewDetails.descripsion = descripsion
+        }
+        
+        if let price = data["price"].int {
+            ViewDetails.price = price
+        }
+        
+        if let productViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController {
+            self.navigationController?.pushViewController(productViewController, animated: true)
+        }
+    }
     
 }
 
@@ -169,28 +195,41 @@ extension CategoryController {
     
     func sizeForItem () -> CGSize {
         let screenWidth = self.view.frame.width
-        let spacingBetweenItem = 10.0
-        let spacingAtEdges = 10.0
-        let numberOfItemsInEachRow = 2
         
-        let totalSpacing = (spacingAtEdges * 2) + (Double (numberOfItemsInEachRow - 1) * spacingBetweenItem)
-        let itemWidth = (screenWidth - totalSpacing) / 2
+        if screenWidth > 500 {
+            let spacingBetweenItem = 10.0
+            let spacingAtEdges = 10.0
+            let numberOfItemsInEachRow = 4
+            
+            let totalSpacing = (spacingAtEdges * 4) + (Double (numberOfItemsInEachRow - 1) * spacingBetweenItem)
+            let itemWidth = (screenWidth - totalSpacing) / 4
+            
+            return CGSize(width: itemWidth, height: 270.0)
+        } else {
+            let spacingBetweenItem = 10.0
+            let spacingAtEdges = 10.0
+            let numberOfItemsInEachRow = 2
+                    
+            let totalSpacing = (spacingAtEdges * 2) + (Double (numberOfItemsInEachRow - 1) * spacingBetweenItem)
+            let itemWidth = (screenWidth - totalSpacing) / 2
+                    
+            return CGSize(width: itemWidth, height: 270.0)
+        }
         
-        return CGSize(width: itemWidth, height: 270.0)
     }
 }
 
 extension CategoryController {
     func fetchProducts () {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        let url = RestClient.baseUrl + RestClient.productsUrl
+        let url = "https://fakestoreapi.com/products"
         AF.request(url).responseData { response in
             //debugPrint(response)
             MBProgressHUD.hide(for: self.view, animated: true)
             
             switch (response.result) {
             case .success:
-                print("Validation Successful")
+                //print("Validation Successful")
                 
                 if let responseData = response.value {
                     do {
@@ -218,7 +257,7 @@ extension CategoryController {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let url = RestClient.baseUrl + RestClient.categoryUrl
         AF.request(url).responseData { response in
-            debugPrint(response)
+            //debugPrint(response)
             MBProgressHUD.hide(for: self.view, animated: true)
             
             switch (response.result) {
@@ -247,21 +286,14 @@ extension CategoryController {
 
 extension CategoryController: CategoryHolderCellDeligate {
     
-    func electronicsItemDidSelected() {
-        if let electronisController = self.storyboard?.instantiateViewController(withIdentifier: Constans.electronicsItemController) as? ElectronicItemsController {
-            self.navigationController?.pushViewController(electronisController, animated: true)
-        }
-    }
-    
-    func clothesDidSelected() {
-        if let ClothesController = self.storyboard?.instantiateViewController(withIdentifier: Constans.clothesController) as? ClothesController {
+    func CategoryDidSelected() {
+        if let ClothesController = self.storyboard?.instantiateViewController(withIdentifier: Constans.clothesController) as? CategoryViewController {
             self.navigationController?.pushViewController(ClothesController, animated: true)
         }
     }
+}
+
+extension CategoryController {
     
-    func sportsItemDidSelected() {
-        if let sportsController = self.storyboard?.instantiateViewController(withIdentifier: Constans.sportsController) as? FurnitureController {
-            self.navigationController?.pushViewController(sportsController, animated: true)
-        }
-    }
+
 }

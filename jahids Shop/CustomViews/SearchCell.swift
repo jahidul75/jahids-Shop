@@ -10,7 +10,7 @@ import UIKit
 class SearchCell: UITableViewCell {
     
     @IBOutlet weak var nameLavel: UILabel!
-    @IBOutlet weak var descriptionLavel: UILabel!
+    @IBOutlet weak var priceLavel: UILabel!
     @IBOutlet weak var instockLavel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
 

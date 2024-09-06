@@ -63,7 +63,7 @@ class ProfileController: UIViewController {
         
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil, requestModifier: nil).responseDecodable(of: profileResponse.self) { response in
             
-            debugPrint(response)
+            //debugPrint(response)
             MBProgressHUD.hide(for: self.view, animated: true)
             
             switch (response.result) {

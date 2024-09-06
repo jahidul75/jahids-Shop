@@ -4,7 +4,7 @@ import UIKit
 
 class SplashController: UIViewController {
     
-    @IBOutlet var hello: UILabel!
+    @IBOutlet var splashImage: UIImageView!
     var timer: Timer?
 
     override func viewDidLoad() {
@@ -13,7 +13,9 @@ class SplashController: UIViewController {
         
         //self.hello.text = "Jahid's Shop"
         
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(makeTransition), userInfo: nil, repeats: false)
+        self.splashImage.ApplyCorner(CornerRadius: 25.0, BorderWidth: 0.0, BorderColor: .clear)
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(makeTransition), userInfo: nil, repeats: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {

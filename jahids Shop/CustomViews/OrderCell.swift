@@ -12,12 +12,9 @@ class OrderCell: UICollectionViewCell {
     
     @IBOutlet weak var orderImage: UIImageView!
     @IBOutlet weak var orderProductName: UILabel!
-    @IBOutlet weak var orderProductDescripsion: UILabel!
     @IBOutlet weak var orderProductPrice: UILabel!
-    @IBOutlet weak var orderCoantity: UILabel!
-    @IBOutlet weak var orderStepper: UIStepper!
     @IBOutlet weak var orderView: UIView!
-    @IBOutlet weak var orderSwitch: UISwitch!
+    @IBOutlet weak var orderDeleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +24,7 @@ class OrderCell: UICollectionViewCell {
     func setOrderInformation (product: DisplayProduct) {
         self.orderImage.image = UIImage(systemName: "soccerball")
         self.orderProductName.text = product.name
-        self.orderProductDescripsion.text = product.description
+        //self.orderProductDescripsion.text = product.description
         
         let strokeEffect: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,

@@ -13,3 +13,19 @@ struct product {
     let description: String
     let inStock: Bool
 }
+
+struct detail {
+    let id: Int
+    let name: String
+    let descripsion: String
+    let price: Int
+    let inStock: Bool
+}
+
+struct allProducts: Identifiable {
+    var id = UUID()
+    var name: String
+    var image: String
+    var descripsion: String
+    var price: Int
+}

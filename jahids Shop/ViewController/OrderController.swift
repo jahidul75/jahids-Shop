@@ -11,6 +11,12 @@ import Kingfisher
 import MBProgressHUD
 import Alamofire
 
+struct cart {
+    let image: String?
+    let title: String?
+    let price: Int?
+}
+
 class OrderController: UIViewController {
     
     @IBOutlet weak var OrderBUtton: UIButton!
@@ -18,9 +24,10 @@ class OrderController: UIViewController {
     @IBOutlet weak var TotalAmountLavel: UILabel!
     @IBOutlet weak var orderCollectionView: UICollectionView!
     
-    /*var Orders: [JSON] = [
+    var arr: String?
+    var Orders: [cart] = [
         
-    ]*/
+    ]
     
     let products: [DisplayProduct] = [
         DisplayProduct(id: 1, name: "Football", description: "The FIFA World Cup is a professional football tournament held between national football teams, organised by FIFA. The tournament has been contested by 32 teams since the 1998 event", discountedPrice: 100.0, originalPrice: 120.0),
@@ -52,8 +59,15 @@ class OrderController: UIViewController {
         
         self.navigationItem.title = "My Orders"
         self.OrderBUtton.ApplyCorner(CornerRadius: 10.0, BorderWidth: 0.0, BorderColor: .clear)
+        print(Orders.count)
         
+        self.OrderBUtton.addTarget(self, action: #selector(btnOrderAction), for: .touchUpInside)
         //self.fetchProductCategories()
+    }
+    
+    @objc func btnOrderAction () {
+        print(Orders.count)
+        print("Arry \(arr)")
     }
     
     /*func setCategoriesAndReload (cats: [JSON]) {
@@ -104,7 +118,7 @@ extension OrderController: UICollectionViewDelegateFlowLayout {
         let header = orderCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellIdentifier.collectionSectionHeaderView, for: indexPath) as! CollectionSectionHeaderView
         
         if indexPath.section == 0 {
-            header.headerTitleLavel?.text = "Your Save Orders"
+            header.headerTitleLavel?.text = "Your Saved Products"
         }
 
         

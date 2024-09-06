@@ -13,9 +13,7 @@ import Kingfisher
 import Alamofire
 
 protocol CategoryHolderCellDeligate: AnyObject {
-    func clothesDidSelected ()
-    func electronicsItemDidSelected ()
-    func sportsItemDidSelected()
+    func CategoryDidSelected ()
 }
 
 protocol CategorysTitle: AnyObject {
@@ -25,8 +23,8 @@ protocol CategorysTitle: AnyObject {
 class CategoryHolderCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    weak var daligate: CategoryHolderCellDeligate?
-    weak var ChangeTitle: CategorysTitle?
+    weak var delegate: CategoryHolderCellDeligate?
+    //weak var ChangeTitle: CategorysTitle?
     
     var categories: [JSON] = [
         
@@ -67,7 +65,7 @@ extension CategoryHolderCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("CategoryCount = \(categories.count)")
+        //print("CategoryCount = \(categories.count)")
         return categories.count
     }
     
@@ -99,7 +97,7 @@ extension CategoryHolderCell: UICollectionViewDataSource {
 extension CategoryHolderCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    
         return CGSize(width: 120.0, height: 101.0)
         
     }
@@ -112,15 +110,30 @@ extension CategoryHolderCell: UICollectionViewDelegateFlowLayout {
 extension CategoryHolderCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
+        
+        let data = self.categories[indexPath.row]
+        
+        if let id = data["id"].int {
+            ViewDetails.id = id
+        }
+        if let title = data["name"].string {
+            ViewDetails.title = title
+        }
+        
+        delegate?.CategoryDidSelected()
+        
+        /*
         if indexPath.row == 0 {
-            daligate?.clothesDidSelected()
+            delegate?.clothesDidSelected()
         }
         else if indexPath.row == 1 {
-            daligate?.electronicsItemDidSelected()
+            delegate?.electronicsItemDidSelected()
         }
         else if indexPath.row == 2 {
-            daligate?.sportsItemDidSelected()
+            delegate?.furnitureItemDidSelected()
         }
+         */
         
     }
 }
